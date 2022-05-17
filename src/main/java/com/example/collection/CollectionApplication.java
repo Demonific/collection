@@ -7,8 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.example.collection.domain.Item;
-import com.example.collection.domain.ItemRepository;
+import com.example.collection.domain.Collectible;
+import com.example.collection.domain.CollectibleRepository;
 import com.example.collection.domain.Category;
 import com.example.collection.domain.CategoryRepository;
 import com.example.collection.domain.User;
@@ -24,7 +24,7 @@ public class CollectionApplication {
 		SpringApplication.run(CollectionApplication.class, args);
 	}
 	@Bean
-	public CommandLineRunner bookDemo(ItemRepository repository, CategoryRepository crepository, UserRepository urepository) {
+	public CommandLineRunner collectibleDemo(CollectibleRepository repository, CategoryRepository crepository, UserRepository urepository) {
 		return (args) -> {
 			log.info("Add collectibles");
 			Category category1 = new Category("Cards");
@@ -34,15 +34,17 @@ public class CollectionApplication {
 			Category category3 = new Category("Stamps");
 			crepository.save(category3);
 			
+			repository.save(new Collectible(category1, "Korttikokoelma", "Tässä kokelmassa on arvokkaita kortteja", 15));
+			
 			// Create users: admin/admin user/user
 			User user1 = new User("user@user.com", "user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
 			User user2 = new User("admin@admin.com", "admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
 			urepository.save(user1);
 			urepository.save(user2);
 			
-			log.info("fetch all items");
-			for (Item item : repository.findAll()) {
-				log.info(item.toString());
+			log.info("fetch all collectibles");
+			for (Collectible collectible : repository.findAll()) {
+				log.info(collectible.toString());
 			}
 
 		};

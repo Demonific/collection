@@ -10,7 +10,7 @@ input[type=text], select {
   border-radius: 40px;
 }
 
-input[type=submit] {
+.center1 {
   background-color: #6f55af;
   border: none;
   color: white;
@@ -22,6 +22,8 @@ input[type=submit] {
   font-size: 16px;
   border-radius: 40px;
   cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 input[type=submit]:hover {
@@ -36,10 +38,6 @@ body {
   text-align: center;
 }
 .center{
-	margin-left: auto;
-	margin-right: auto;
-}
-.center1{
 	margin-left: auto;
 	margin-right: auto;
 }

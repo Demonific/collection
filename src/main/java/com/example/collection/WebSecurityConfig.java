@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .headers().frameOptions().sameOrigin()
         .and()
       .formLogin()
-          .defaultSuccessUrl("/itemlist", true)
+          .defaultSuccessUrl("/collectiblelist", true)
           .permitAll()
           .and()
       .logout()

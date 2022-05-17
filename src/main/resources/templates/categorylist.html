@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Kategoria lista</h1>
-    <table>
+    <table class="center">
     	<tr>
     		<th>ID</th>
     		<th>Nimi</th>
@@ -19,8 +19,11 @@
 	    	<td th:text=${category.categoryName}></td>
     	</tr>
     </table>
-        <form action="/addcategory">
-    <input type="submit" value="Add a Category" />
+    <form action="/addcategory">
+    <input class="center1" type="submit" value="Add a Category" />
 	</form>
+    <form action="/collectiblelist">
+    <input class="center1" type="submit" value="Back to collection" />
+	</form>	
 </body>
 </html>
